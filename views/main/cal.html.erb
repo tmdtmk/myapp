@@ -1,0 +1,943 @@
+<html>
+    <head>
+      <style>
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3%;
+        }
+        input{
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+        }
+        #buttonc{
+            background-color: yellow;
+            border: 1px solid black;
+        }
+        #buttonac{
+            background-color: red;
+            border: 1px solid black;
+        }
+        #output{
+            font-size: 20px;
+            margin-top: 5%;
+            margin-left: 40%;
+            margin-right: 40%;
+        }
+      </style>
+    </head>
+<body>
+<table border="0" style="border-collapse: collapse">
+    <tr>
+        <td><input id="button7" type="button" value="7" onclick="plus7()"/></td>
+        <td><input id="button8" type="button" value="8" onclick="plus8()"/></td>
+        <td><input id="button9" type="button" value="9" onclick="plus9()"/></td>
+        <td><input id="buttonc" type="button" value="c" onclick="oneclear()"/></td>
+        <td><input id="buttonac" type="button" value="ac" onclick="allclear()"/></td>
+    </tr>
+    <tr>
+        <td><input id="button4" type="button" value="4" onclick="plus4()"/></td>
+        <td><input id="button5" type="button" value="5" onclick="plus5()"/></td>
+        <td><input id="button6" type="button" value="6" onclick="plus6()"/></td>
+        <td><input id="buttonm" type="button" value="-" onclick="flagm()"/></td>
+        <td><input id="buttond" type="button" value="÷" onclick="flagd()"/></td>
+    </tr>
+    <tr>
+        <td><input id="button1" type="button" value="1" onclick="plus1()"/></td>
+        <td><input id="button2" type="button" value="2" onclick="plus2()"/></td>
+        <td><input id="button3" type="button" value="3" onclick="plus3()"/></td>
+        <td><input id="buttonp" type="button" value="+" onclick="flagp()"/></td>
+        <td><input id="buttont" type="button" value="×" onclick="flagt()"/></td>
+
+    </tr>
+    <tr>
+        <td><input id="button0" type="button" value="0" onclick="plus0()"/></td>
+        <td><input id="button00" type="button" value="00" onclick="plus00()"/></td>
+        <td><input id="buttond" type="button" value="." onclick="point()"/></td>
+        <td><input id="buttone" type="button" value="=" onclick="flage()"/></td>
+    </tr>
+    <div id="output">
+    <script src="./path/bignumber.js" type="text/javascript">
+    </script>
+    <script>
+        var number1 = 0;
+        var number2 = 0;
+        var ans = 0;
+        var flag = 0;
+        var diviten1 = 1;
+        var diviten2 = 1;
+        var decinum = 0;
+        var deci = 0;
+        let num1 = new Bignumber(0);
+        let num2 = new Bignumber(0);
+        let decinum1 = new Bignumber(0);
+        let divten1 = new Bignumber(1);
+        let output = document.getElementById("output");
+        output.innerHTML = `<p> ${number1} </p>`;
+        function plus1(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 1;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 1/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 1;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 1/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 1/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 1/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 1/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        
+        function plus2(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 2;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 2/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 2;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 2/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 2/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 2/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 2/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        function plus3(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 3;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 3/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 3;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 3/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 3/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 3/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 3/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        function plus4(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 4;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 4/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 4;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 4/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 4/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 4/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 4/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        function plus5(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 5;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 5/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 5;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 5/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 9/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 5/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 5/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        function plus6(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 6;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 6;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 6;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 6;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 6;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 6/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 6;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 6;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 6;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 6/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 6/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 6/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 6/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        function plus7(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 7;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 7/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 7;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 7/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 7/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 7/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 7/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        function plus8(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 8;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 8;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 8;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 8;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 8;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        else if(deci == 1){
+            if(flag < 1){
+                diviten1 = diviten1 * 10;
+                decinum = 8/diviten1;
+                number1 = number1 + decinum;
+                output.innerHTML = `<p> ${number1} </p>`;
+            }
+            else if(flag == 1){
+                number2 = number2 * 10 + 8;
+                output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+            }
+            else if(flag == 2){
+                number2 = number2 * 10 + 8;
+                output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+            }
+            else if(flag == 3){
+                number2 = number2 * 10 + 8;
+                output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+            }
+            else if(flag == 4){
+                number2 = number2 * 10 + 8;
+                output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+            }
+        }
+        else if(deci == 2){
+            if(flag == 1){
+                diviten2 = diviten2 * 10;
+                decinum = 8/diviten2;
+                number2 = number2 + decinum;
+                output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+            }
+            else if(flag == 2){
+                diviten2 = diviten2 * 10;
+                decinum = 8/diviten2;
+                number2 = number2 + decinum;
+                output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+            }
+            else if(flag == 3){
+                diviten2 = diviten2 * 10;
+                decinum = 8/diviten2;
+                number2 = number2 + decinum;
+                output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+            }
+            else if(flag == 4){
+                diviten2 = diviten2 * 10;
+                decinum = 8/diviten2;
+                number2 = number2 + decinum;
+                output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+            }
+        }
+        }
+        function plus9(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                number1 = number1 * 10 + 9;
+                output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 1){
+                if(flag < 1){
+                    diviten1 = diviten1 * 10;
+                    decinum = 9/diviten1;
+                    number1 = number1 + decinum;
+                    output.innerHTML = `<p> ${number1} </p>`;
+                }
+                else if(flag == 1){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    number2 = number2 * 10 + 9;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+            else if(deci == 2){
+                if(flag == 1){
+                    diviten2 = diviten2 * 10;
+                    decinum = 9/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                }
+                else if(flag == 2){
+                    diviten2 = diviten2 * 10;
+                    decinum = 9/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                }
+                else if(flag == 3){
+                    diviten2 = diviten2 * 10;
+                    decinum = 9/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                }
+                else if(flag == 4){
+                    diviten2 = diviten2 * 10;
+                    decinum = 9/diviten2;
+                    number2 = number2 + decinum;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                }
+            }
+        }
+        function plus0(){
+            let output = document.getElementById("output");
+            if(flag < 1){
+                number1 = number1 * 10;
+                output.innerHTML = `<p> ${number1} </p>`;
+            }
+            else if(flag == 1){
+                number2 = number2 * 10;
+                output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+            }
+            else if(flag == 2){
+                number2 = number2 * 10;
+                output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+            }
+            else if(flag == 3){
+                number2 = number2 * 10;
+                output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+            }
+            else if(flag == 4){
+                number2 = number2 * 10;
+                output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+            }
+        }
+        function plus00(){
+            let output = document.getElementById("output");
+            if(flag < 1){
+                number1 = number1 * 100;
+                output.innerHTML = `<p> ${number1} </p>`;
+            }
+            else if(flag == 1){
+                number2 = number2 * 100;
+                output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+            }
+            else if(flag == 2){
+                number2 = number2 * 100;
+                output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+            }
+            else if(flag == 3){
+                number2 = number2 * 100;
+                output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+            }
+            else if(flag == 4){
+                number2 = number2 * 100;
+                output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+            }
+        }
+        function point(){
+            let output = document.getElementById("output");
+            if(deci < 1){
+                if(flag < 1){
+                    deci = 1;
+                    number1 = number1;
+                    output.innerHTML = `<p> ${number1}.0 </p>`;
+                }
+                else if(flag >= 1){
+                    if(flag == 1){
+                        deci = 2;
+                        number2 = number2;
+                        output.innerHTML = `<p> ${number1} + ${number2}.0 </p>`;
+                    }
+                    else if(flag == 2){
+                        deci = 2;
+                        number2 = number2;
+                        output.innerHTML = `<p> ${number1} - ${number2}.0 </p>`;
+                    }
+                    else if(flag == 3){
+                        deci = 2;
+                        number2 = number2;
+                        output.innerHTML = `<p> ${number1} × ${number2}.0 </p>`;
+                    }
+                    else if(flag == 4){
+                        deci = 2;
+                        number2 = number2;
+                        output.innerHTML = `<p> ${number1} ÷ ${number2}.0 </p>`;
+                    }
+                }
+            }
+            else if(flag >= 1){
+                if(flag == 1){
+                    deci = 2;
+                    number2 = number2;
+                    output.innerHTML = `<p> ${number1} + ${number2}.0 </p>`;
+                }
+                else if(flag == 2){
+                    deci = 2;
+                    number2 = number2;
+                    output.innerHTML = `<p> ${number1} - ${number2}.0 </p>`;
+                }
+                else if(flag == 3){
+                    deci = 2;
+                    number2 = number2;
+                    output.innerHTML = `<p> ${number1} × ${number2}.0 </p>`;
+                }
+                else if(flag == 4){
+                    deci = 2;
+                    number2 = number2;
+                    output.innerHTML = `<p> ${number1} ÷ ${number2}.0 </p>`;
+                }
+            }
+        }
+        function oneclear(){
+            let output = document.getElementById("output");
+            diviten1 = 1;
+            diviten2 = 1;
+            if(flag < 1){
+                number1 = 0;
+                output.innerHTML = `<p> ${number1} </p>`;
+                deci = 0;
+            }
+            else if(flag == 1){
+                number2 = 0;
+                output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+                deci = 1;
+            }
+            else if(flag == 2){
+                number2 = 0;
+                output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+                deci = 1;
+            }
+            else if(flag == 3){
+                number2 = 0;
+                output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+                deci = 1;
+            }
+            else if(flag == 4){
+                number2 = 0;
+                output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+                deci = 1;
+            }
+        }
+        function allclear(){
+            number1 = 0;
+            number2 = 0;
+            flag = 0;
+            deci = 0;
+            diviten1 = 1;
+            diviten2 = 1;
+            let output = document.getElementById("output");
+            output.innerHTML = `<p> ${number1} </p>`;
+        }
+        function flagp(){
+            if(flag != 5){
+                flag = 1;
+                output.innerHTML = `<p> ${number1} + ${number2} </p>`;
+            }
+        }
+        function flagm(){
+            if(flag != 5){
+                flag = 2;
+                output.innerHTML = `<p> ${number1} - ${number2} </p>`;
+            }
+        }
+        function flagt(){
+            if(flag != 5){
+                flag = 3;
+                output.innerHTML = `<p> ${number1} × ${number2} </p>`;
+            }
+        }
+        function flagd(){
+            if(flag != 5){
+                flag = 4;
+                output.innerHTML = `<p> ${number1} ÷ ${number2} </p>`;
+            }
+        }
+        function flage(){
+            let output = document.getElementById("output");
+            if(flag == 1){
+                ans = number1 + number2;
+                output.innerHTML = `<p> ${number1} + ${number2} = ${ans} </p>`;
+                flag = 5;
+            }
+            else if(flag == 2){
+                ans = number1 - number2;
+                output.innerHTML = `<p> ${number1} - ${number2} = ${ans} </p>`;
+                flag = 5;
+            }
+            else if(flag == 3){
+                ans = number1 * number2;
+                output.innerHTML = `<p> ${number1} × ${number2} = ${ans} </p>`;
+                flag = 5;
+            }
+            else if(flag == 4){
+                ans = number1 / number2;
+                output.innerHTML = `<p> ${number1} ÷ ${number2} = ${ans} </p>`;
+                flag = 5;
+            }
+        }
+    </script>
+</body>
+</html>
